@@ -1,7 +1,7 @@
 package plog
 
 import (
-	"github.com/lonelyevil/kook"
+	"github.com/Quinlivanner/kook-golang-sdk"
 	"github.com/phuslu/log"
 	"net"
 	"time"
