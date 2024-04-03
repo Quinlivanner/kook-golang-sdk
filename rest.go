@@ -398,8 +398,8 @@ type ChannelRoleUpdate struct {
 
 // ChannelRoleUpdateResp is the response of ChannelRoleUpdate
 type ChannelRoleUpdateResp struct {
-	//UserID string         `json:"user_id"`
-	RoleID string         `json:"role_id"`
+	UserID string         `json:"user_id"`
+	RoleID int            `json:"role_id"`
 	Allow  RolePermission `json:"allow"`
 	Deny   RolePermission `json:"deny"`
 }
