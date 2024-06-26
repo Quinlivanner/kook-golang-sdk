@@ -29,6 +29,7 @@ func (c CardMessage) MustBuildMessage() string {
 
 // CardTheme is the type for card theme.
 type CardTheme string
+type CardMessageString string
 
 // These are predefined usable card themes.
 const (
@@ -38,6 +39,7 @@ const (
 	CardThemeWarning   CardTheme = "warning"
 	CardThemeInfo      CardTheme = "info"
 	CardThemeSecondary CardTheme = "secondary"
+	CardThemeInvisible CardTheme = "invisible"
 )
 
 // CardSize is the type for card size.
@@ -428,4 +430,14 @@ func (c *CardMessageParagraph) AddField(i ...interface{}) *CardMessageParagraph 
 		}
 	}
 	return c
+}
+
+// 解析卡片消息
+func (s CardMessageString) UnmarshalStringToCardMessage() ([]CardMessageCard, error) {
+	var cardMessage []CardMessageCard
+	err := json.Unmarshal([]byte(s), &cardMessage)
+	if err != nil {
+		return nil, err
+	}
+	return cardMessage, nil
 }
